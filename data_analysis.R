@@ -12,10 +12,10 @@ plot(AVPI~ Blimp.1, data = raw_data, pch=16, xlab= "Blimp-1 expression", ylab = 
 linearregression<- lm(AVPI ~ Blimp.1, data = raw_data)
 ## linear regression 
 ttestsummary<-summary(linearregression)
-
+sink("Results_Table.txt")
+ttestsummary
+sink()
 abline(linearregression) ## Makes regression line
-##exportablesummary<-tidyr(linearregression)
-
 predict(linearregression, data.frame(Blimp.1 = 0.50), se.fit = TRUE)
 anova(linearregression)
 summary(lionRegression)
